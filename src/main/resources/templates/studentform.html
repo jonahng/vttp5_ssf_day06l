@@ -13,12 +13,13 @@
     <main>
         <h1>create person</h1>  
         <p>input</p>
+        <!-- this will post the data in the form of the object student(containing id, fullName,email,phoneNumber) to the url /students -->
         <form method ="post" data-th-action="@{/students}" th:object ="${student}">
           <label>PLEASE FILL IN ALL FIELDS</label>
 
           
           <div class="mb-3">
-            <label class="form-label">Full name</label>
+            <label class="form-label">id</label>
             <input type="text" class="form-control" name="id" placeholder="id" th:field="*{id}">
             </div>
 
@@ -28,12 +29,12 @@
               </div>
 
               <div class="mb-3">
-                <label class="form-label">Full name</label>
+                <label class="form-label">email</label>
                 <input type="text" class="form-control" name="email" placeholder="email" th:field="*{email}">
                 </div>
 
                 <div class="mb-3">
-                  <label class="form-label">Full name</label>
+                  <label class="form-label">phone</label>
                   <input type="text" class="form-control" name="phoneNumber" placeholder="phone" th:field="*{phoneNumber}">
                   </div>
 

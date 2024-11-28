@@ -11,9 +11,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.jonah.vttp5_ssf_day06l.constant.Constant;
 import com.jonah.vttp5_ssf_day06l.model.Student;
 import com.jonah.vttp5_ssf_day06l.service.StudentService;
+
+import jakarta.json.Json;
+import jakarta.json.JsonArrayBuilder;
+import jakarta.json.JsonObject;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -35,9 +41,21 @@ StudentService studentService;
     }
 
     @GetMapping("")
-    public ResponseEntity<List<Student>> findAll() {
+    public ResponseEntity<String> findAll() {
         List<Student> students = studentService.findAll(Constant.studentKey);
-        return ResponseEntity.ok().body(students);
+        JsonArrayBuilder jsonArray = Json.createArrayBuilder();
+        for(Student s: students){
+            JsonObject jsonObj = Json.createObjectBuilder()
+            .add("id", s.getId())
+            .add("fullName", s.getFullName())
+            .add("email", s.getEmail())
+            .add("phoneNumber",s.getPhoneNumber())
+            .build();
+
+            jsonArray.add(jsonObj);
+        }
+        jsonArray.build();
+        return ResponseEntity.ok().body(jsonArray.toString());
     }
     
     
