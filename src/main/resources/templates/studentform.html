@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Website</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+  </head>
+  <body>
+
+    <main>
+        <h1>create person</h1>  
+        <p>input</p>
+        <form method ="post" data-th-action="@{/students}" th:object ="${student}">
+          <label>PLEASE FILL IN ALL FIELDS</label>
+
+          
+          <div class="mb-3">
+            <label class="form-label">Full name</label>
+            <input type="text" class="form-control" name="id" placeholder="id" th:field="*{id}">
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Full name</label>
+              <input type="text" class="form-control" name="name" placeholder="name" th:field="*{fullName}">
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Full name</label>
+                <input type="text" class="form-control" name="email" placeholder="email" th:field="*{email}">
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Full name</label>
+                  <input type="text" class="form-control" name="phoneNumber" placeholder="phone" th:field="*{phoneNumber}">
+                  </div>
+
+
+          <button type = "submit">submit?</button>
+
+        </form>
+
+
+        
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
